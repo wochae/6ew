@@ -5,6 +5,10 @@ import './App.css';
 function App() {
 
   let posts = '강남 고기 맛집';
+  function 함수() {
+    return 100
+  }
+  
   return (
     <div className="App">
       <div className="black-nav">
