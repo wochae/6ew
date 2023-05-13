@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
 
-  let posts = { color : 'blue', fontSize : '30px' };
-  
+  let [글제목, 글제목변경] = useState('남자 코트 추천');
+
+  let posts = '강남 고기 맛집';
   return (
     <div className="App">
       <div className="black-nav">
-        <div style={ posts }>개발 Blog</div>
+        <div>개발 Blog</div>
       </div>
-      <img src={ logo } />
-        <h4>{ posts }</h4>
+      <div className="list">
+        <h3> { 글제목 } </h3>
+        <p>5월 13일 발행</p>
+        <hr/>
+      </div>
     </div>
   );
 }
