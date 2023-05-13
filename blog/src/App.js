@@ -5,8 +5,14 @@ import './App.css';
 function App() {
 
   let [글제목, 글제목변경] = useState(['남자 코트 추천', '강남 우동맛집', '파이썬독학']);
-  let posts = '강남 고기 맛집';
   let [따봉, 따봉변경] = useState(0);
+  let posts = '강남 고기 맛집';
+
+  function 제목바꾸기(){
+    var newArray = [...글제목];
+    newArray[0] = '여자 코트 추천';
+    글제목변경( newArray );
+  }
   return (
     <div className="App">
       <div className="black-nav">
