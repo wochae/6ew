@@ -1,4 +1,4 @@
-function Modal(){
+function Modal() {
     return (
         <div className='modal'>
             <h2></h2>
