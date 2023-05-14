@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import logo from './logo.svg';
 import './App.css';
 import Time from './Time';
-const today = function() {
+const today = function () {
   return new Date().toISOString();
 };
 
