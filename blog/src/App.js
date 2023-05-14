@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React from "react";
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const today = function() {
+  return new Date().toISOString();
+};
 
+function App() {
+  let myName = "My Name";
   return (
     <div className="App">
-      <div className="black-nav">
-        <div>제목</div>
-      </div>
-      <div className="list">
-        
-      </div>
+      <header className="App-header">
+        <h2>{myName}</h2>
+        <Time init={ today }/>
+      </header>
+    </div>
+  );
+}
+
+function Time(props) {
+  return (
+    <div>
+      <h2>What Time is it?</h2>
+      <p>{props.today}</p>
     </div>
   );
 }
