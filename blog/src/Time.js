@@ -1,10 +1,11 @@
 import React from 'react';
 
-function Time({ today }) {
+function Time({ defaultDate, message }) {
+  
   return (
     <div>
-      <h2>What Time is it?</h2>
-      <p>{today}</p>
+      <h2>{message}</h2>
+      <p>{defaultDate}</p>
     </div>
   );
 }

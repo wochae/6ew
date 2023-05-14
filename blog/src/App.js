@@ -5,14 +5,16 @@ import Time from './Time';
 const today = function () {
   return new Date().toISOString();
 };
+const timeProps = {
+  defaultDate: today(),
+  message: "What Time is it? huh?"
+};
 
 function App() {
-  let myName = "My Name";
   return (
     <div className="App">
       <header className="App-header">
-        <h2>{myName}</h2>
-        <Time today={today()} />
+        <Time {...timeProps} />
       </header>
     </div>
   );
