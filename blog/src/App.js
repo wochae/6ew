@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import logo from './logo.svg';
-import './App.css';
 import Time from './Time';
-const today = function () {
-  return new Date().toISOString();
-};
+import './App.css';
+const today = new Date().toISOString();
+
 const timeProps = {
   defaultDate: today(),
   message: "What Time is it? huh?"
