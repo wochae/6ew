@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import logo from './logo.svg';
 import './App.css';
+import Time from './Time';
 
 const today = function() {
   return new Date().toISOString();
@@ -14,15 +15,6 @@ function App() {
         <h2>{myName}</h2>
         <Time init={ today }/>
       </header>
-    </div>
-  );
-}
-
-function Time(props) {
-  return (
-    <div>
-      <h2>What Time is it?</h2>
-      <p>{props.today}</p>
     </div>
   );
 }
