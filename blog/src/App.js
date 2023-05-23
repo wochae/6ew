@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Children } from 'react';
+import Template from './components/Template';
 import './App.css';
 
 const App = () => {
-  return <div>안녕하세요</div>;
+  return <Template>안녕하세요</Template>;
 };
 
 export default App;
