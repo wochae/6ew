@@ -4,6 +4,7 @@ import TodoList from './components/TodoList';
 import TodoInsert from './components/TodoInsert';
 import './App.css';
 import { MdAddCircle } from 'react-icons/md';
+import './TodoInsert.css'
 
 const App = () => {
   const [insertToggle, setInsertToggle] = useState(false); // 추가 버튼 클릭 시, TodoInsert 컴포넌트 보여주기 위한 상태
@@ -23,7 +24,7 @@ const App = () => {
       <div className="add-todo-button" onClick={onInsertToggle}>
         <MdAddCircle/>
       </div>
-      {insertToggle && <TodoInsert />}
+      {insertToggle && <TodoInsert onInsertToggle={onInsertToggle} />}
     </Template>
   );
 };

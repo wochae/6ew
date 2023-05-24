@@ -1,10 +1,10 @@
 import React from "react";
 import { MdAddCircle } from "react-icons/md";
 
-const TodoInsert = () => {
+const TodoInsert = ({ onInsertToggle }) => {
     return (
     <div>
-        <div className="background"></div>
+        <div className="background" onClick={onInsertToggle}></div>
         <form>
             <input></input>
             <button type="submidt">
