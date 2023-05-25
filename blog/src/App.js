@@ -32,10 +32,17 @@ const App = () => {
       nextId++;
     }
   };
+  const onCheckToggle = (id) => {
+    setTodos(todos => 
+      todos.map(todo => 
+        todo.id === id ? { ...todo, checked: !todo.checked } : todo
+      )
+    );
+  };
 
   return( 
     <Template todoLength={todos.length}>
-      <TodoList todos={todos}/>
+      <TodoList todos={todos} onCheckToggle={onCheckToggle}/>
       <div className="add-todo-button" onClick={onInsertToggle}>
         <MdAddCircle/>
       </div>
