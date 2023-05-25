@@ -4,11 +4,11 @@ import TodoList from './components/TodoList';
 import TodoInsert from './components/TodoInsert';
 import './App.css';
 import { MdAddCircle } from 'react-icons/md';
-import './TodoInsert.css'
+import './components/TodoInsert.css'
 
 let nextId = 4; // 함수가 증가할 때마다 저장하고 새로고침 해도 영속성을 잃지 않기 위해
 const App = () => {
-  const [selectedTodo, setSeletedTodo] = useState(null);
+  const [selectedTodo, setSelectedTodo] = useState(null);
   const [insertToggle, setInsertToggle] = useState(false); // 추가 버튼 클릭 시, TodoInsert 컴포넌트 보여주기 위한 상태
   const [todos, setTodos] = useState([
     { id: 1, text: '리액트의 기초 알아보기', checked: true },
@@ -17,6 +17,9 @@ const App = () => {
   ]);
 
   const onInsertToggle = () => {
+    if (selectedTodo) {
+      setSelectedTodo(null);
+    }
     setInsertToggle(prev => !prev);
   };
 
@@ -41,8 +44,13 @@ const App = () => {
     );
   };
 
-  const onChangeSelectedTodo = (todo) => {
-    setSeletedTodo(todo)
+  const onChangeSelectedTodo = todo => {
+    setSelectedTodo(todo);
+  };
+
+  const onRemove = id => {
+    onInsertToggle();
+    setTodos(todos => todos.filter(todo => todo.id !== id));
   };
 
   return (
@@ -61,6 +69,7 @@ const App = () => {
         selectedTodo={selectedTodo}
         onInsertToggle={onInsertToggle} 
         onInsertTodo={onInsertTodo} 
+        onRemove={onRemove}
         />
       )}
     </Template>
