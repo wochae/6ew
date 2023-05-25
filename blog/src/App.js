@@ -53,6 +53,13 @@ const App = () => {
     setTodos(todos => todos.filter(todo => todo.id !== id));
   };
 
+  const onUpdate = (id, text) => {
+    onInsertToggle();
+    setTodos(todos => 
+      todos.map(todo => (todo.id === id ? { ...todo , text } : todo))
+      );
+  };
+
   return (
     <Template todoLength={todos.length}>
       <TodoList
@@ -70,6 +77,7 @@ const App = () => {
         onInsertToggle={onInsertToggle} 
         onInsertTodo={onInsertTodo} 
         onRemove={onRemove}
+        onUpdate={onUpdate}
         />
       )}
     </Template>
