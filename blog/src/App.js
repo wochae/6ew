@@ -6,6 +6,7 @@ import './App.css';
 import { MdAddCircle } from 'react-icons/md';
 import './TodoInsert.css'
 
+let nextId = 4; // 함수가 증가할 때마다 저장하고 새로고침 해도 영속성을 잃지 않기 위해
 const App = () => {
   const [insertToggle, setInsertToggle] = useState(false); // 추가 버튼 클릭 시, TodoInsert 컴포넌트 보여주기 위한 상태
   const [todos, setTodos] = useState( [
@@ -18,13 +19,27 @@ const App = () => {
     setInsertToggle(prev => !prev);
   };
 
+  const onInsertTodo = (text) => {
+    if (text === "") {
+      return alert('할 일을 입력해주세요.');
+    } else {
+      const todo = {
+        id: nextId,
+        text,
+        checked: false
+      }
+      setTodos(todos => todos.concat(todo));
+      nextId++;
+    }
+  };
+
   return( 
     <Template todoLength={todos.length}>
       <TodoList todos={todos}/>
       <div className="add-todo-button" onClick={onInsertToggle}>
         <MdAddCircle/>
       </div>
-      {insertToggle && <TodoInsert onInsertToggle={onInsertToggle} />}
+      {insertToggle && <TodoInsert onInsertToggle={onInsertToggle} onInsertTodo={onInsertTodo}/>}
     </Template>
   );
 };
