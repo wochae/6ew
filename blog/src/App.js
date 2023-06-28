@@ -18,14 +18,12 @@ const App = () => {
   ]);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/user/', {
-      params: { userId: 1 }
+    axios.get('http://localhost:8080/users', {
     })
       .then(response => {
         const { userId, userName } = response.data;
         setUserId(userId);
         setUserName(userName);
-        console.log(response.data);
       })
       .catch(error => {
         console.log(error);
